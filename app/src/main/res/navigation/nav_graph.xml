@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.personalpro.im_app.fragment.LoginFragment"
+        android:label="LoginFragment" >
+
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.personalpro.im_app.fragment.MainFragment"
+        android:label="MainFragment" >
+
+        <action
+            android:id="@+id/action_mainFragment_to_chatFragment"
+            app:destination="@id/chatFragment" >
+
+            <argument
+                android:name="id"
+                app:argType="string"
+                app:nullable="false"/>
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.personalpro.im_app.fragment.ChatFragment"
+        android:label="ChatFragment" />
+
+    <fragment
+        android:id="@+id/friendsListFragment"
+        android:name="com.personalpro.im_app.fragment.FriendsListFragment"
+        android:label="FriendsListFragment" />
+
+</navigation>
