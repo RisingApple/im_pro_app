@@ -36,6 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
                 android:text="@{item.toUserName}"
                 app:layout_constraintLeft_toRightOf="@+id/img"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -44,6 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{item.lastString}"
+                android:textSize="17sp"
                 app:layout_constraintStart_toStartOf="@+id/nick_name"
                 app:layout_constraintTop_toBottomOf="@+id/nick_name" />
 

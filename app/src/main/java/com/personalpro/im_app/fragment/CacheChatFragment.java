@@ -2,7 +2,6 @@ package com.personalpro.im_app.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +15,14 @@ import com.personalpro.im_app.Constant;
 import com.personalpro.im_app.R;
 import com.personalpro.im_app.adapter.CacheChatAdapter;
 import com.personalpro.im_app.adapter.RecycleViewItemDecoration;
+import com.personalpro.im_app.adapter.base.OnItemClickListener;
 import com.personalpro.im_app.databinding.MessageDataBinding;
 import com.personalpro.im_app.room.entity.ChatCache;
 import com.personalpro.im_app.util.LogUtil;
 import com.personalpro.im_app.util.SharedPrefUtil;
 import com.personalpro.im_app.viewmodel.ChatViewModel;
 
-public class CacheChatFragment extends BaseFragment<MessageDataBinding> {
+public class CacheChatFragment extends BaseFragment<MessageDataBinding> implements OnItemClickListener {
 
     private static final String TAG = CacheChatFragment.class.getSimpleName();
 
@@ -61,6 +61,7 @@ public class CacheChatFragment extends BaseFragment<MessageDataBinding> {
     @Override
     protected void initView() {
         adapter = new CacheChatAdapter();
+        adapter.setOnItemClickListener(this);
         dataBinding.list.setAdapter(adapter);
         dataBinding.list.setLayoutManager(new LinearLayoutManager(getContext()));
         dataBinding.list.addItemDecoration(new RecycleViewItemDecoration());
@@ -79,8 +80,16 @@ public class CacheChatFragment extends BaseFragment<MessageDataBinding> {
             for(ChatCache chat:chatCaches){
                 LogUtil.i(TAG,chat.getUser());
             }
-
             adapter.updateList(chatCaches);
         } );
+    }
+
+    @Override
+    public void onItemClick(Object o, View v, int position) {
+
+    }
+
+    private void init(int params){
+
     }
 }
